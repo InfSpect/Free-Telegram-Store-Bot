@@ -1,0 +1,148 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "user_id": 8418496426,
+      "username": "Donald_Market",
+      "wallet": 0,
+      "created_at": "2026-05-09 09:34:44"
+    }
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "admin_id": 8418496426,
+      "username": "Donald",
+      "wallet": 0,
+      "created_at": "2026-05-09 09:52:46"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "productnumber": 10000001,
+      "admin_id": 8418496426,
+      "username": "Donald",
+      "productname": "Starter Bot Template",
+      "productdescription": "A simple Telegram bot starter package for testing purchases.",
+      "productprice": 19,
+      "productimagelink": "https://i.ibb.co/9vctwpJ/IMG-1235.jpg",
+      "productdownloadlink": "https://example.com/downloads/starter-bot-template.zip",
+      "productkeysfile": "NIL",
+      "productquantity": 25,
+      "productcategory": "DIGITAL TOOLS",
+      "created_at": "2026-05-09T12:00:00"
+    },
+    {
+      "id": 2,
+      "productnumber": 10000002,
+      "admin_id": 8418496426,
+      "username": "Donald",
+      "productname": "Premium UI Kit",
+      "productdescription": "Dummy design assets for storefront testing.",
+      "productprice": 29,
+      "productimagelink": "https://i.ibb.co/9vctwpJ/IMG-1235.jpg",
+      "productdownloadlink": "https://example.com/downloads/premium-ui-kit.zip",
+      "productkeysfile": "NIL",
+      "productquantity": 12,
+      "productcategory": "DESIGN ASSETS",
+      "created_at": "2026-05-09T12:05:00"
+    },
+    {
+      "id": 3,
+      "productnumber": 10000003,
+      "admin_id": 8418496426,
+      "username": "Donald",
+      "productname": "API Credits Pack",
+      "productdescription": "Sample license-style product with limited quantity.",
+      "productprice": 49,
+      "productimagelink": "https://i.ibb.co/9vctwpJ/IMG-1235.jpg",
+      "productdownloadlink": "https://example.com/downloads/api-credits.txt",
+      "productkeysfile": "NIL",
+      "productquantity": 8,
+      "productcategory": "DIGITAL TOOLS",
+      "created_at": "2026-05-09T12:10:00"
+    },
+    {
+      "id": 4,
+      "productnumber": 43388294,
+      "admin_id": 8418496426,
+      "username": "Donald_Market",
+      "productname": "Ass",
+      "productdescription": "ASSSSS",
+      "productprice": "6969",
+      "productimagelink": "AgACAgQAAxkBAAMvaf8GpS9JZtUYa7KJ41YsdHiJS3oAAr4OaxviSPlT1uujeVeZqrMBAAMCAANzAAM7BA",
+      "productdownloadlink": "https://google.com",
+      "productkeysfile": "NIL",
+      "productquantity": 100,
+      "productcategory": "DIGITAL TOOLS",
+      "created_at": "2026-05-09T13:30:47"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "buyerid": 8418496426,
+      "buyerusername": "Donald_Market",
+      "productname": "Starter Bot Template",
+      "productprice": 19,
+      "orderdate": "2026-05-09 12:30:00",
+      "paidmethod": "Bitcoin",
+      "productdownloadlink": "https://example.com/downloads/starter-bot-template.zip",
+      "productkeys": "DUMMY-STARTER-KEY-001",
+      "buyercomment": "Test paid order",
+      "ordernumber": 90000001,
+      "productnumber": 10000001,
+      "payment_id": "dummy-paid-90000001",
+      "created_at": "2026-05-09T12:30:00"
+    },
+    {
+      "id": 2,
+      "buyerid": 8418496426,
+      "buyerusername": "Donald_Market",
+      "productname": "Premium UI Kit",
+      "productprice": 29,
+      "orderdate": "2026-05-09 12:35:00",
+      "paidmethod": "NO",
+      "productdownloadlink": "https://example.com/downloads/premium-ui-kit.zip",
+      "productkeys": "NIL",
+      "buyercomment": "Pending payment test order",
+      "ordernumber": 90000002,
+      "productnumber": 10000002,
+      "payment_id": "dummy-pending-90000002",
+      "created_at": "2026-05-09T12:35:00"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "categorynumber": 200001,
+      "categoryname": "Digital Tools",
+      "created_at": "2026-05-09T12:00:00"
+    },
+    {
+      "id": 2,
+      "categorynumber": 200002,
+      "categoryname": "Design Assets",
+      "created_at": "2026-05-09T12:05:00"
+    },
+    {
+      "id": 4,
+      "categorynumber": 3044,
+      "categoryname": "AA",
+      "created_at": "2026-05-09T13:39:35"
+    }
+  ],
+  "payment_methods": [
+    {
+      "id": 1,
+      "admin_id": 8418496426,
+      "username": "Donald",
+      "method_name": "Bitcoin",
+      "token_keys_clientid": "dummy_nowpayments_api_key",
+      "secret_keys": "dummy_ipn_secret",
+      "activated": "YES",
+      "created_at": "2026-05-09T12:00:00"
+    }
+  ]
+}

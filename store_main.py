@@ -1,11 +1,8 @@
-import flask
 from datetime import datetime
 import requests
 import time
 import logging
-from flask_session import Session
 import telebot
-from flask import Flask, request, jsonify
 from telebot import types
 import random
 import os
@@ -32,48 +29,18 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-flask_app = Flask(__name__)
-flask_app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'secretaaaaaaaaaaaaaaaa')
-
 # Bot connection
-webhook_url = os.getenv('NGROK_HTTPS_URL')
 bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
 store_currency = os.getenv('STORE_CURRENCY', 'USD')
 
-if not webhook_url or not bot_token:
-    logger.error("Missing required environment variables: NGROK_HTTPS_URL or TELEGRAM_BOT_TOKEN")
+if not bot_token:
+    logger.error("Missing required environment variable: TELEGRAM_BOT_TOKEN")
     exit(1)
 
 bot = telebot.TeleBot(bot_token, threaded=False)
 
-# Set up webhook
-try:
-    bot.remove_webhook()
-    bot.set_webhook(url=webhook_url)
-    logger.info(f"Webhook set successfully to {webhook_url}")
-except Exception as e:
-    logger.error(f"Failed to set webhook: {e}")
-    exit(1)
-
-
-# Process webhook calls
-logger.info("Shop Started!")
-
-@flask_app.route('/', methods=['GET', 'POST'])
-def webhook():
-    """Handle incoming webhook requests from Telegram"""
-    try:
-        if flask.request.headers.get('content-type') == 'application/json':
-            json_string = flask.request.get_data().decode('utf-8')
-            update = telebot.types.Update.de_json(json_string)
-            bot.process_new_updates([update])
-            return ''
-        else:
-            logger.warning("Invalid content type in webhook request")
-            flask.abort(403)
-    except Exception as e:
-        logger.error(f"Error processing webhook: {e}")
-        flask.abort(500)
+# Set up polling (no ngrok needed!)
+logger.info("Shop Started! Using polling mode...")
 
 # Initialize payment settings
 def get_payment_api_key():
@@ -104,7 +71,7 @@ def create_main_keyboard():
 keyboard = create_main_keyboard()
 
 
-##################WELCOME MESSAGE + BUTTONS START#########################
+################## WELCOME MESSAGE + BUTTONS START #########################
 #Function to list Products and Categories
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
@@ -143,6 +110,47 @@ def products_get(message):
     except Exception as e:
         logger.error(f"Error processing product selection: {e}")
         bot.send_message(message.chat.id, "Error processing your request. Please try again.")
+
+@bot.message_handler(commands=['addadmin'])
+def add_admin_command(message):
+    """Development-only command to add an admin."""
+    try:
+        requester_id = message.from_user.id
+        requester_username = message.from_user.username or message.from_user.first_name
+        admins = GetDataFromDB.GetAdminIDsInDB() or []
+        admin_ids = {int(admin[0]) for admin in admins}
+
+        if admin_ids and requester_id not in admin_ids:
+            bot.send_message(message.chat.id, "Only an existing admin can add another admin.")
+            return
+
+        command_parts = message.text.split()
+
+        if message.reply_to_message:
+            target_user = message.reply_to_message.from_user
+            admin_id = target_user.id
+            username = target_user.username or target_user.first_name
+        elif len(command_parts) >= 2:
+            try:
+                admin_id = int(command_parts[1])
+            except ValueError:
+                bot.send_message(message.chat.id, "Usage: /addadmin <telegram_id> [username]")
+                return
+            username = command_parts[2].lstrip("@") if len(command_parts) >= 3 else None
+        else:
+            admin_id = requester_id
+            username = requester_username
+
+        username = username or str(admin_id)
+        if admin_id in admin_ids:
+            bot.send_message(message.chat.id, f"{username} ({admin_id}) is already an admin.")
+            return
+
+        CreateDatas.AddAdmin(admin_id, username)
+        bot.send_message(message.chat.id, f"Admin added: {username} ({admin_id})")
+    except Exception as e:
+        logger.error(f"Error adding admin from command: {e}")
+        bot.send_message(message.chat.id, "Error adding admin. Please try again.")
 #Start command handler and function
 @bot.message_handler(content_types=["text"], func=lambda message: message.text == "Home 🏘")
 @bot.message_handler(commands=['start'])
@@ -383,7 +391,14 @@ def add_a_product_photo_link(message):
         keyboard.row_width = 2
         try:
             id = message.from_user.id
-            image_link = message.photo[0].file_id
+            if message.photo:
+                image_link = message.photo[-1].file_id
+            elif message.text and message.text.startswith(("http://", "https://")):
+                image_link = message.text.strip()
+            else:
+                msg = bot.send_message(id, "Please send a product photo or an image URL that starts with http:// or https://")
+                bot.register_next_step_handler(msg, add_a_product_photo_link)
+                return
             all_categories = GetDataFromDB.GetCategoryIDsInDB()
             if all_categories == []:
                 msg = bot.send_message(id, "Please reply with a new category's name")
@@ -528,7 +543,7 @@ def add_a_product_download_link(message):
         productdescription = GetDataFromDB.GetProductDescription(productnumbers)
         productprice = GetDataFromDB.GetProductPrice(productnumbers)
         productquantity = GetDataFromDB.GetProductQuantity(productnumbers)
-        captions = f"\n\n\nProduct Tittle: {productname}\n\n\nProduct Number: `{productnumber}`\n\n\nProduct Price: {productprice} {store_currency} 💰\n\n\nQuantity Avaialble: {productquantity} \n\n\nProduct Description: {productdescription}"
+        captions = f"\n\n\nProduct Tittle: {productname}\n\n\nProduct Number: `{productnumber}`\n\n\nProduct Price: {productprice} {store_currency} 💰\n\n\nQuantity Available: {productquantity} \n\n\nProduct Description: {productdescription}"
         bot.send_photo(chat_id=message.chat.id, photo=f"{productimage}", caption=f"{captions}", parse_mode='Markdown')
         bot.send_message(id, "Product Successfully Added ✅\n\nWhat will you like to do next ?", reply_markup=keyboardadmin)
     except Exception as e:
@@ -820,7 +835,6 @@ def MyOrdersList(message):
             for buyerid, buyerusername, productname, productprice, orderdate, paidmethod, productdownloadlink, productkeys, buyercomment, ordernumber, productnumber in order_details:
                 msg = f"{productname} ORDERED ON {orderdate} ✅\n\n\nOrder 🆔: {ordernumber}\nOrder Date 🗓: {orderdate}\nProduct Name 📦: {productname}\nProduct 🆔:{productnumber}\nProduct Price 💰: {productprice} {store_currency}\nPayment Method 💳: {paidmethod}\nProduct Keys 🔑: {productkeys}\nDownload ⤵️: {productdownloadlink}"
                 bot.send_message(id, text=f"{msg}")
-        bot.send_message(id, "List completed ✅", reply_markup=keyboard)
 
 #Command handler and function to list Store Supports 📞
 @bot.message_handler(content_types=["text"], func=lambda message: message.text == "Support 📞")
@@ -877,8 +891,7 @@ def ListCategoryMNG(message):
                     text_but = f"🏷 {catname}"
                     text_cal = f"listcats_{catnum}"
                     keyboardadmin.add(types.InlineKeyboardButton(text=text_but, callback_data=text_cal))
-                bot.send_message(id, f"CATEGORIES:", reply_markup=keyboardadmin)
-                bot.send_message(id, "List completed ✅")
+                bot.send_message(id, f"List of Categories:", reply_markup=keyboardadmin)
         except Exception as e:
             print(e)
             msg = bot.send_message(id, "Error 404 🚫, try again with corrected input.")
@@ -934,11 +947,10 @@ def EditCategoryNameMNG(message):
             keyboardadmin.row_width = 2
             key1 = types.KeyboardButton(text="Add New Category ➕")
             key2 = types.KeyboardButton(text="List Categories 🏷")
-            key3 = types.KeyboardButton(text="Edit Category Name ✏️")
             key4 = types.KeyboardButton(text="Delete Category 🗑️")
             key5 = types.KeyboardButton(text="Home 🏘")
             keyboardadmin.add(key1, key2)
-            keyboardadmin.add(key3, key4)
+            keyboardadmin.add(key4)
             keyboardadmin.add(key5)
             try:
                 product_cate = GetDataFromDB.Get_A_CategoryName(category_number)
@@ -1007,7 +1019,7 @@ def ManageCategoryMNG(message):
                     text_but = f"🏷 {catname}"
                     text_cal = f"managecats_{catnum}"
                     keyboardadmin.add(types.InlineKeyboardButton(text=text_but, callback_data=text_cal))
-                bot.send_message(id, f"CATEGORIES:", reply_markup=keyboardadmin)
+                bot.send_message(id, f"List of Categories:", reply_markup=keyboardadmin)
                 
                 keyboard1 = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
                 keyboard1.row_width = 2
@@ -1141,7 +1153,7 @@ def LISTProductsMNG(message):
                 text_but = f"💼 {tittle} - {price} {store_currency}"
                 text_cal = f"getproductig_{pid}"
                 keyboard.add(types.InlineKeyboardButton(text=text_but, callback_data=text_cal))
-            bot.send_message(id, f"PRODUCTS:", reply_markup=keyboard)
+            bot.send_message(id, f"List of Products: (JUST A LIST, NON CLICKABLE)", reply_markup=keyboard)
             key1 = types.KeyboardButton(text="Add New Product ➕")
             key2 = types.KeyboardButton(text="List Product 🏷")
             key3 = types.KeyboardButton(text="Delete Product 🗑️")
@@ -1149,7 +1161,6 @@ def LISTProductsMNG(message):
             keyboarda.add(key1)
             keyboarda.add(key2, key3)
             keyboarda.add(key4)
-            msg = bot.send_message(id, "List Finished: ✅", reply_markup=keyboarda, parse_mode="Markdown")
 
     else:
         bot.send_message(id, "⚠️ Only Admin can use this command !!!", reply_markup=keyboard)
@@ -1197,8 +1208,7 @@ def message_all_users(message):
                         bot.send_message(id, f"Message successfully sent ✅ To: @`{uname}`")
                         time.sleep(0.5)
                     except:
-                        bot.send_message(id, f"User @{uid} has blocked the bot - {uname} ")
-                bot.send_message(id, f"Broadcast Completed ✅", reply_markup=keyboardadmin)
+                        pass
         except Exception as e:
             print(e)
             bot.send_message(id, "Error 404 🚫, try again with corrected input.")
@@ -1251,7 +1261,6 @@ def ListOrders(message):
             key3 = types.KeyboardButton(text="Home 🏘")
             keyboardadmin.add(key1)
             keyboardadmin.add(key2, key3)
-            bot.send_message(id, f"List Completed ✅", reply_markup=keyboardadmin)
         else:
             bot.send_message(id, "⚠️ Only Admin can use this command !!!", reply_markup=keyboard)
     except Exception as e:
@@ -1439,8 +1448,8 @@ def add_bitcoin_secret_key(message):
 
 if __name__ == '__main__':
     try:
-        logger.info("Starting Flask application...")
-        flask_app.run(debug=False, host='0.0.0.0', port=5000)
+        logger.info("Starting bot with polling...")
+        bot.infinity_polling(timeout=10, long_polling_timeout=5)
     except Exception as e:
-        logger.error(f"Error starting Flask application: {e}")
+        logger.error(f"Error running bot: {e}")
         exit(1)

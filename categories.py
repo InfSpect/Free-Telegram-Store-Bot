@@ -35,8 +35,8 @@ class CategoriesDatas:
         input_category = checkint() 
         if isinstance(input_category, int) == True:
             product_cate = GetDataFromDB.Get_A_CategoryName(input_category)
-            if f"{product_cate}" in f"{categories}":
-                product_category = product_cate.upper()
+            product_category = product_cate.upper() if product_cate else None
+            if product_category in categories:
                 product_list = GetDataFromDB.GetProductInfoByCTGName(product_category)
                 print(product_list)
                 if product_list == []:
@@ -57,4 +57,4 @@ class CategoriesDatas:
                         
                         #bot.send_message(id, "💡 Click on a Product ID to select the product purchase")
             else:
-                print("Wrong commmand !!!")
+                bot.send_message(id, "Category not found.")
