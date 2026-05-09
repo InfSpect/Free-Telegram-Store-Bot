@@ -1,5 +1,3 @@
-
-
 from datetime import *
 from flask_session import Session
 import telebot
