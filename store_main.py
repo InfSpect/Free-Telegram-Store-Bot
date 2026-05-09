@@ -11,9 +11,9 @@ import random
 import os
 import os.path
 import re
-from InDMDevDB import *
+from database import *
 from purchase import *
-from InDMCategories import *
+from categories import *
 from telebot.types import LabeledPrice, PreCheckoutQuery, SuccessfulPayment, ShippingOption
 import json
 from dotenv import load_dotenv

@@ -10,27 +10,21 @@ from dotenv import load_dotenv
 load_dotenv('config.env')
 
 class BotConfig:
-    """Bot configuration settings"""
     
-    # Bot Settings
     BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
     WEBHOOK_URL = os.getenv('NGROK_HTTPS_URL')
     
-    # Store Settings
     STORE_CURRENCY = os.getenv('STORE_CURRENCY', 'USD')
-    STORE_NAME = os.getenv('STORE_NAME', 'Telegram Store')
+    STORE_NAME = os.getenv('STORE_NAME', 'Rafay Store')
     
-    # Database Settings
     DB_FILE = 'InDMDevDBShop.db'
-    DB_BACKUP_INTERVAL = 3600  # 1 hour in seconds
+    DB_BACKUP_INTERVAL = 3600
     
-    # Payment Settings
     NOWPAYMENTS_API_BASE = 'https://api.nowpayments.io/v1'
     COINGECKO_API_BASE = 'https://api.coingecko.com/api/v3'
     
-    # Security Settings
     MAX_LOGIN_ATTEMPTS = 5
-    SESSION_TIMEOUT = 3600  # 1 hour
+    SESSION_TIMEOUT = 3600
     
     # File Upload Settings
     MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
@@ -84,12 +78,10 @@ class BotConfig:
     
     @classmethod
     def get_db_url(cls):
-        """Get database connection URL"""
         return f"sqlite:///{cls.DB_FILE}"
     
     @classmethod
     def get_log_config(cls):
-        """Get logging configuration"""
         return {
             'level': cls.LOG_LEVEL,
             'filename': cls.LOG_FILE,
@@ -154,24 +146,19 @@ class SecurityConfig:
     
     @classmethod
     def is_safe_filename(cls, filename):
-        """Check if filename is safe"""
         import os
         
-        # Check for dangerous extensions
         _, ext = os.path.splitext(filename.lower())
         if ext in cls.DANGEROUS_FILE_EXTENSIONS:
             return False
         
-        # Check for path traversal attempts
         if '..' in filename or '/' in filename or '\\' in filename:
             return False
         
         return True
 
-# Default configuration instance
 config = BotConfig()
 
-# Validate configuration on import
 try:
     config.validate_config()
 except ValueError as e:

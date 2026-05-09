@@ -5,7 +5,7 @@ from flask import Flask, request
 from telebot import types
 import os
 import os.path
-from InDMDevDB import *
+from database import *
 from dotenv import load_dotenv
 load_dotenv('config.env')
 
