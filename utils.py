@@ -1,4 +1,4 @@
-import re
+﻿import re
 import logging
 from typing import Optional, Union
 
@@ -131,7 +131,7 @@ class MessageFormatter:
     def format_product_info(product_data: dict) -> str:
         """Format product information for display"""
         return f"""
-🏷️ **Product Details**
+ **Product Details**
 
 **Name:** {product_data.get('name', 'N/A')}
 **Price:** {product_data.get('price', 0)} {product_data.get('currency', 'USD')}
@@ -144,7 +144,7 @@ class MessageFormatter:
     def format_order_info(order_data: dict) -> str:
         """Format order information for display"""
         return f"""
-📦 **Order Details**
+ **Order Details**
 
 **Order ID:** {order_data.get('id', 'N/A')}
 **Product:** {order_data.get('product_name', 'N/A')}
@@ -157,7 +157,7 @@ class MessageFormatter:
     def format_error_message(error_type: str, user_friendly: bool = True) -> str:
         """Format error messages for users"""
         if user_friendly:
-            return f"❌ {error_type}. Please try again or contact support."
+            return f" {error_type}. Please try again or contact support."
         return f"Error: {error_type}"
 
 class CacheManager:

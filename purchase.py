@@ -1,22 +1,10 @@
-from datetime import *
-from flask_session import Session
+﻿from datetime import *
 import telebot
-from flask import Flask, request
 from telebot import types
 import os
-import os.path
 from database import *
 from dotenv import load_dotenv
 load_dotenv('config.env')
-
-
-# M""M M"""""""`YM M""""""'YMM M"""""`'"""`YM M""""""'YMM MM""""""""`M M""MMMMM""M 
-# M  M M  mmmm.  M M  mmmm. `M M  mm.  mm.  M M  mmmm. `M MM  mmmmmmmM M  MMMMM  M 
-# M  M M  MMMMM  M M  MMMMM  M M  MMM  MMM  M M  MMMMM  M M`      MMMM M  MMMMP  M 
-# M  M M  MMMMM  M M  MMMMM  M M  MMM  MMM  M M  MMMMM  M MM  MMMMMMMM M  MMMM' .M 
-# M  M M  MMMMM  M M  MMMM' .M M  MMM  MMM  M M  MMMM' .M MM  MMMMMMMM M  MMP' .MM 
-# M  M M  MMMMM  M M       .MM M  MMM  MMM  M M       .MM MM        .M M     .dMMM 
-# MMMM MMMMMMMMMMM MMMMMMMMMMM MMMMMMMMMMMMMM MMMMMMMMMMM MMMMMMMMMMMM MMMMMMMMMMM 
 
 # Bot connection
 bot = telebot.TeleBot(f"{os.getenv('TELEGRAM_BOT_TOKEN')}", threaded=False)
@@ -31,20 +19,20 @@ class UserOperations:
         all_categories = GetDataFromDB.GetCategoryIDsInDB()
         keyboard = types.InlineKeyboardMarkup()
         if all_categories == []:
-            bot.send_message(id, "⚠️ No Product available at the moment, kindly check back soon ")
+            bot.send_message(id, " No Product available at the moment, kindly check back soon ")
         else:
             for catnum, catname in all_categories:
                 c_catname = catname.upper()
                 products_category = GetDataFromDB.GetCategoryNumProduct(c_catname)
                 for ctg in products_category:
                     products_in_category = ctg[0]
-                    text_but = f"🏷 {catname} ({products_in_category})"
+                    text_but = f" {catname} ({products_in_category})"
                     text_cal = f"getcats_{catnum}"
                     keyboard.add(types.InlineKeyboardButton(text=text_but, callback_data=text_cal))
         
 
             bot.send_message(id, f"CATEGORIES:", reply_markup=keyboard)
-            bot.send_message(id, "List completed ✅", reply_markup=types.ReplyKeyboardRemove())
+            bot.send_message(id, "List completed.", reply_markup=types.ReplyKeyboardRemove())
             for productnumber, productname, productprice, productdescription, productimagelink, productdownloadlink, productquantity, productcategory in products_list:
                 list_m =  [productnumber, productname, productprice]
 
@@ -70,15 +58,15 @@ class UserOperations:
         if isinstance(input_product_id, int) == True:
             product_list = GetDataFromDB.GetProductInfoByPName(input_product_id)
             if f"{input_product_id}" in f"{product_list}":
-                key1 = types.KeyboardButton(text="Bitcoin ฿")
+                key1 = types.KeyboardButton(text="Bitcoin")
                 keyboard.add(key1)
                 for productnumber, productname, productprice, productdescription, productimagelink, productdownloadlink, productquantity, productcategory in product_list:
                     list_m =  [productnumber, productname, productprice, productdescription, productimagelink, productdownloadlink, productquantity, productcategory]
-                    bot.send_message(id, "💡 Select a Payment method to pay for this product 👇", reply_markup=keyboard)
+                    bot.send_message(id, " Select a Payment method to pay for this product ", reply_markup=keyboard)
                 global order_info
                 order_info = list_m
             else:
-                print("Wrong command !!!")
+                print("Wrong command!!!")
     def orderdata():
         try:
             1==1

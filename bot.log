@@ -1,150 +1,49 @@
-2026-05-09 13:28:46,011 - __main__ - INFO - Shop Started! Using polling mode...
-2026-05-09 13:28:46,012 - __main__ - INFO - Starting bot with polling...
-2026-05-09 13:29:24,003 - __main__ - INFO - Shop Started! Using polling mode...
-2026-05-09 13:29:24,003 - __main__ - INFO - Starting bot with polling...
-2026-05-09 13:29:51,703 - __main__ - WARNING - Unknown callback data: getproductig_10000002
-2026-05-09 13:30:08,079 - __main__ - WARNING - Unknown callback data: getproductig_10000002
-2026-05-09 13:30:37,699 - TeleBot - ERROR - Infinity polling: polling exited
-2026-05-09 13:30:37,700 - TeleBot - ERROR - Break infinity polling
-2026-05-09 13:30:39,396 - __main__ - INFO - Shop Started! Using polling mode...
-2026-05-09 13:30:39,397 - __main__ - INFO - Starting bot with polling...
-2026-05-09 13:30:44,235 - __main__ - WARNING - Unknown callback data: getproductig_10000001
-2026-05-09 13:32:01,602 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140049973&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 13:32:01,611 - TeleBot - ERROR - Exception traceback:
+2026-05-09 15:12:42,706 - store_main - INFO - Shop Started! Using polling mode...
+2026-05-09 15:14:17,738 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 15:14:17,739 - __main__ - INFO - Starting bot with polling...
+2026-05-09 15:14:33,106 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=15)
+2026-05-09 15:14:33,115 - TeleBot - ERROR - Exception traceback:
 Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 775, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 1044, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 730, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
     )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 909, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
     )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 469, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 513, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
     )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140049973&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
-    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                logger_level=logger_level, allowed_updates=allowed_updates)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
-    raise e
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
-    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
-    result = _get_req_session().request(
-        method, request_url, params=params, files=files,
-        timeout=(connect_timeout, read_timeout), proxies=proxy)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140049973&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-2026-05-09 13:36:53,678 - __main__ - WARNING - Unknown callback data: getproductig_43388294
-2026-05-09 13:37:30,116 - TeleBot - ERROR - Infinity polling: polling exited
-2026-05-09 13:37:30,116 - TeleBot - ERROR - Break infinity polling
-2026-05-09 13:37:32,605 - __main__ - INFO - Shop Started! Using polling mode...
-2026-05-09 13:37:32,605 - __main__ - INFO - Starting bot with polling...
-2026-05-09 13:37:59,319 - __main__ - WARNING - Unknown callback data: listcats_200001
-2026-05-09 13:38:21,269 - TeleBot - ERROR - Infinity polling: polling exited
-2026-05-09 13:38:21,269 - TeleBot - ERROR - Break infinity polling
-2026-05-09 13:38:22,538 - __main__ - INFO - Shop Started! Using polling mode...
-2026-05-09 13:38:22,538 - __main__ - INFO - Starting bot with polling...
-2026-05-09 13:38:25,380 - __main__ - WARNING - Unknown callback data: listcats_200001
-2026-05-09 13:38:34,519 - __main__ - WARNING - Unknown callback data: listcats_200001
-2026-05-09 13:38:50,162 - TeleBot - ERROR - Infinity polling: polling exited
-2026-05-09 13:38:50,163 - TeleBot - ERROR - Break infinity polling
-2026-05-09 13:38:54,608 - __main__ - INFO - Shop Started! Using polling mode...
-2026-05-09 13:38:54,609 - __main__ - INFO - Starting bot with polling...
-2026-05-09 13:41:16,907 - TeleBot - ERROR - Infinity polling: polling exited
-2026-05-09 13:41:16,908 - TeleBot - ERROR - Break infinity polling
-2026-05-09 13:41:18,931 - __main__ - INFO - Shop Started! Using polling mode...
-2026-05-09 13:41:18,931 - __main__ - INFO - Starting bot with polling...
-2026-05-09 13:43:31,484 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/sendMessage?chat_id=8418496426&text=List+completed+%E2%9C%85&reply_markup=%7B%22remove_keyboard%22%3A+true%7D (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 13:44:13,526 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050030&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 13:44:13,529 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
+    ^
+  File "C:\Python314\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+TimeoutError: _ssl.c:1063: The handshake operation timed out
 
 The above exception was the direct cause of the following exception:
 
@@ -159,10 +58,23 @@ Traceback (most recent call last):
     retries = retries.increment(
         method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
     )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050030&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 777, in urlopen
+    self._raise_timeout(
+    ~~~~~~~~~~~~~~~~~~~^
+        err=e, url=self.proxy.url, timeout_value=conn.timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=15)
 
 During handling of the above exception, another exception occurred:
 
@@ -174,26 +86,17 @@ Traceback (most recent call last):
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
                  *args, **kwargs)
                  ^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
-    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                logger_level=logger_level, allowed_updates=allowed_updates)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
-    raise e
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
-    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
-    return _make_request(token, method_url, params=payload)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1208, in polling
+    logger.info('Starting your bot with username: [@%s]', self.user.username)
+                                                          ^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 307, in user
+    self._user = self.get_me()
+                 ~~~~~~~~~~~^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1395, in get_me
+    apihelper.get_me(self.token)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 204, in get_me
+    return _make_request(token, method_url)
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
     result = _get_req_session().request(
         method, request_url, params=params, files=files,
@@ -202,100 +105,16 @@ Traceback (most recent call last):
     resp = self.send(prep, **send_kwargs)
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
     r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050030&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 691, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=15)
 
-2026-05-09 13:44:51,588 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050030&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 13:44:51,593 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050030&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
-    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                logger_level=logger_level, allowed_updates=allowed_updates)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
-    raise e
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
-    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
-    result = _get_req_session().request(
-        method, request_url, params=params, files=files,
-        timeout=(connect_timeout, read_timeout), proxies=proxy)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050030&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-2026-05-09 13:46:39,706 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
-2026-05-09 13:46:39,712 - TeleBot - ERROR - Exception traceback:
+2026-05-09 15:15:24,375 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 15:15:24,376 - __main__ - INFO - Starting bot with polling...
+2026-05-09 15:19:34,248 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 15:19:34,248 - __main__ - INFO - Starting bot with polling...
+2026-05-09 15:19:55,128 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+2026-05-09 15:19:55,138 - TeleBot - ERROR - Exception traceback:
 Traceback (most recent call last):
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
     response = conn.getresponse()
@@ -396,37 +215,68 @@ Traceback (most recent call last):
     raise ReadTimeout(e, request=request)
 requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
 
-2026-05-09 13:48:37,915 - TeleBot - ERROR - Infinity polling: polling exited
-2026-05-09 13:48:37,916 - TeleBot - ERROR - Break infinity polling
-2026-05-09 13:50:16,943 - __main__ - INFO - Shop Started! Using polling mode...
-2026-05-09 13:50:16,944 - __main__ - INFO - Starting bot with polling...
-2026-05-09 13:59:11,541 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 13:59:11,550 - TeleBot - ERROR - Exception traceback:
+2026-05-09 15:20:11,869 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 15:20:11,870 - TeleBot - ERROR - Break infinity polling
+2026-05-09 15:31:47,509 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 15:31:47,510 - __main__ - INFO - Starting bot with polling...
+2026-05-09 15:32:18,511 - database - ERROR - Error loading JSON data: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+2026-05-09 15:32:18,512 - database - ERROR - Error loading JSON data: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+2026-05-09 15:32:18,512 - database - ERROR - Error loading JSON data: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+2026-05-09 15:32:18,512 - database - ERROR - Error loading JSON data: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+2026-05-09 15:32:18,513 - database - ERROR - Error loading JSON data: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+2026-05-09 15:32:18,513 - database - ERROR - Error loading JSON data: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+2026-05-09 15:32:18,514 - database - ERROR - Error loading JSON data: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+2026-05-09 15:33:19,475 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 15:33:19,476 - TeleBot - ERROR - Break infinity polling
+2026-05-09 15:34:41,657 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 15:34:41,657 - __main__ - INFO - Starting bot with polling...
+2026-05-09 15:39:22,875 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 15:39:22,876 - TeleBot - ERROR - Break infinity polling
+2026-05-09 15:53:37,141 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 15:53:37,141 - __main__ - INFO - Starting bot with polling...
+2026-05-09 15:53:52,529 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=15)
+2026-05-09 15:53:52,538 - TeleBot - ERROR - Exception traceback:
 Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 775, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 1044, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 730, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
     )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 909, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 469, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 513, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+TimeoutError: _ssl.c:1063: The handshake operation timed out
 
 The above exception was the direct cause of the following exception:
 
@@ -441,13 +291,214 @@ Traceback (most recent call last):
     retries = retries.increment(
         method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
     )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 777, in urlopen
+    self._raise_timeout(
+    ~~~~~~~~~~~~~~~~~~~^
+        err=e, url=self.proxy.url, timeout_value=conn.timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=15)
 
 During handling of the above exception, another exception occurred:
 
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1208, in polling
+    logger.info('Starting your bot with username: [@%s]', self.user.username)
+                                                          ^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 307, in user
+    self._user = self.get_me()
+                 ~~~~~~~~~~~^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1395, in get_me
+    apihelper.get_me(self.token)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 204, in get_me
+    return _make_request(token, method_url)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
+    result = _get_req_session().request(
+        method, request_url, params=params, files=files,
+        timeout=(connect_timeout, read_timeout), proxies=proxy)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 691, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=15)
+
+2026-05-09 15:54:04,719 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 15:54:04,720 - TeleBot - ERROR - Break infinity polling
+2026-05-09 15:54:13,636 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 15:54:13,637 - __main__ - INFO - Starting bot with polling...
+2026-05-09 15:56:21,571 - __main__ - ERROR - Error handling callback query: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: query is too old and response timeout expired or query ID is invalid
+2026-05-09 15:56:54,365 - __main__ - ERROR - Error processing product selection: UserOperations.purchase_a_products() missing 1 required positional argument: 'input_cate'
+2026-05-09 15:56:56,886 - __main__ - ERROR - Error processing product selection: UserOperations.purchase_a_products() missing 1 required positional argument: 'input_cate'
+2026-05-09 15:57:05,694 - __main__ - ERROR - Error processing product selection: UserOperations.purchase_a_products() missing 1 required positional argument: 'input_cate'
+2026-05-09 15:58:39,021 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 15:58:39,022 - TeleBot - ERROR - Break infinity polling
+2026-05-09 15:58:43,598 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 15:58:43,598 - __main__ - INFO - Starting bot with polling...
+2026-05-09 16:00:37,813 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 16:00:37,813 - TeleBot - ERROR - Break infinity polling
+2026-05-09 16:47:27,692 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 16:47:27,693 - __main__ - INFO - Starting bot with polling...
+2026-05-09 16:48:02,504 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 16:48:02,505 - TeleBot - ERROR - Break infinity polling
+2026-05-09 16:48:36,572 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 16:48:36,573 - __main__ - INFO - Starting bot with polling...
+2026-05-09 16:48:51,967 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=15)
+2026-05-09 16:48:51,978 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 775, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 1044, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 730, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 909, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 469, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 513, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+TimeoutError: _ssl.c:1063: The handshake operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 777, in urlopen
+    self._raise_timeout(
+    ~~~~~~~~~~~~~~~~~~~^
+        err=e, url=self.proxy.url, timeout_value=conn.timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=15)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1208, in polling
+    logger.info('Starting your bot with username: [@%s]', self.user.username)
+                                                          ^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 307, in user
+    self._user = self.get_me()
+                 ~~~~~~~~~~~^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1395, in get_me
+    apihelper.get_me(self.token)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 204, in get_me
+    return _make_request(token, method_url)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
+    result = _get_req_session().request(
+        method, request_url, params=params, files=files,
+        timeout=(connect_timeout, read_timeout), proxies=proxy)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 691, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=15)
+
+2026-05-09 16:48:57,839 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 16:48:57,839 - TeleBot - ERROR - Break infinity polling
+2026-05-09 16:49:17,671 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 16:49:17,671 - __main__ - INFO - Starting bot with polling...
+2026-05-09 16:51:07,076 - __main__ - WARNING - Unknown callback data: listcats_200001
+2026-05-09 16:51:08,853 - __main__ - WARNING - Unknown callback data: listcats_200001
+2026-05-09 16:51:11,577 - __main__ - WARNING - Unknown callback data: listcats_200001
+2026-05-09 16:51:13,455 - __main__ - WARNING - Unknown callback data: listcats_200001
+2026-05-09 16:51:26,848 - __main__ - ERROR - Error handling callback query: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: wrong file identifier/HTTP URL specified
+2026-05-09 16:51:43,707 - __main__ - WARNING - Unknown callback data: listcats_200001
+2026-05-09 16:51:49,093 - __main__ - WARNING - Unknown callback data: listcats_200001
+2026-05-09 16:57:39,674 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 16:57:39,675 - TeleBot - ERROR - Break infinity polling
+2026-05-09 16:57:40,898 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 16:57:40,899 - __main__ - INFO - Starting bot with polling...
+2026-05-09 16:58:55,284 - __main__ - WARNING - Unknown callback data: getproductig_43388294
+2026-05-09 16:59:07,424 - __main__ - WARNING - Unknown callback data: getproductig_64606938
+2026-05-09 16:59:29,656 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 16:59:29,656 - TeleBot - ERROR - Break infinity polling
+2026-05-09 16:59:31,101 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 16:59:31,102 - __main__ - INFO - Starting bot with polling...
+2026-05-09 17:00:19,068 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 17:00:19,069 - TeleBot - ERROR - Break infinity polling
+2026-05-09 17:00:20,926 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 17:00:20,927 - __main__ - INFO - Starting bot with polling...
+2026-05-09 17:00:57,845 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 17:00:57,846 - __main__ - INFO - Starting bot with polling...
+2026-05-09 17:01:04,223 - TeleBot - ERROR - Infinity polling exception: TeleBot.send_photo() missing 1 required positional argument: 'photo'
+2026-05-09 17:01:04,230 - TeleBot - ERROR - Exception traceback:
 Traceback (most recent call last):
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
     self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
@@ -466,294 +517,58 @@ Traceback (most recent call last):
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
     self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
-    result = _get_req_session().request(
-        method, request_url, params=params, files=files,
-        timeout=(connect_timeout, read_timeout), proxies=proxy)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-2026-05-09 14:00:31,431 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 14:00:31,440 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
-    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                logger_level=logger_level, allowed_updates=allowed_updates)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 692, in __retrieve_updates
+    self.process_new_updates(updates)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 820, in process_new_updates
+    self.process_new_messages(new_messages)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 875, in process_new_messages
+    self._notify_command_handlers(self.message_handlers, new_messages, 'message')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 10702, in _notify_command_handlers
+    self._exec_task(
+    ~~~~~~~~~~~~~~~^
+        self._run_middlewares_and_handler,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        middlewares=middlewares,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+        update_type=update_type)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1356, in _exec_task
     raise e
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
-    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
-    result = _get_req_session().request(
-        method, request_url, params=params, files=files,
-        timeout=(connect_timeout, read_timeout), proxies=proxy)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1352, in _exec_task
+    task(*args, **kwargs)
+    ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 10609, in _run_middlewares_and_handler
+    result = handler['function'](message)
+  File "C:\Users\ccccc\Desktop\BotShop\store_main.py", line 258, in admin_switch_user
+    bot.send_photo(chat_id=message.chat.id, caption=f"Dear {user_type},\n\nYour Wallet Balance: $ {user_data}  \n\nBrowse our products, make purchases, and enjoy fast delivery! \nType /browse to start shopping. \n\n Need help? \nContact our support team anytime.", reply_markup=keyboard)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: TeleBot.send_photo() missing 1 required positional argument: 'photo'
 
-2026-05-09 14:00:51,431 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 14:00:51,434 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
-    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                logger_level=logger_level, allowed_updates=allowed_updates)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
-    raise e
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
-    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
-    result = _get_req_session().request(
-        method, request_url, params=params, files=files,
-        timeout=(connect_timeout, read_timeout), proxies=proxy)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-2026-05-09 14:01:39,372 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 14:01:39,376 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
-    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                logger_level=logger_level, allowed_updates=allowed_updates)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
-    raise e
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
-    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
-    result = _get_req_session().request(
-        method, request_url, params=params, files=files,
-        timeout=(connect_timeout, read_timeout), proxies=proxy)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-2026-05-09 14:02:53,764 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
-2026-05-09 14:02:53,774 - TeleBot - ERROR - Exception traceback:
+2026-05-09 17:01:12,520 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 17:01:12,521 - TeleBot - ERROR - Break infinity polling
+2026-05-09 17:01:13,693 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 17:01:13,693 - __main__ - INFO - Starting bot with polling...
+2026-05-09 17:01:28,310 - __main__ - ERROR - Error handling callback query: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: wrong file identifier/HTTP URL specified
+2026-05-09 17:02:41,490 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 17:02:41,491 - TeleBot - ERROR - Break infinity polling
+2026-05-09 17:02:42,648 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 17:02:42,648 - __main__ - INFO - Starting bot with polling...
+2026-05-09 17:12:35,835 - __main__ - WARNING - Unknown callback data: listcats_200001
+2026-05-09 17:12:55,363 - __main__ - WARNING - Unknown callback data: listcats_200001
+2026-05-09 17:13:15,485 - __main__ - WARNING - Unknown callback data: listcats_200001
+2026-05-09 17:17:32,579 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 17:17:32,580 - TeleBot - ERROR - Break infinity polling
+2026-05-09 17:17:37,466 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 17:17:37,467 - __main__ - INFO - Starting bot with polling...
+2026-05-09 17:18:26,241 - __main__ - WARNING - Unknown callback data: getproductig_64606938
+2026-05-09 17:18:27,478 - __main__ - WARNING - Unknown callback data: getproductig_84493503
+2026-05-09 17:19:22,601 - __main__ - WARNING - Unknown callback data: listcats_6988
+2026-05-09 17:35:27,795 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+2026-05-09 17:35:27,809 - TeleBot - ERROR - Exception traceback:
 Traceback (most recent call last):
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
     response = conn.getresponse()
@@ -854,33 +669,49 @@ Traceback (most recent call last):
     raise ReadTimeout(e, request=request)
 requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
 
-2026-05-09 14:05:03,621 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 14:05:03,624 - TeleBot - ERROR - Exception traceback:
+2026-05-09 17:35:41,137 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+2026-05-09 17:35:41,146 - TeleBot - ERROR - Exception traceback:
 Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 775, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 1044, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 730, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
     )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 909, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 469, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 513, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+TimeoutError: _ssl.c:1063: The handshake operation timed out
 
 The above exception was the direct cause of the following exception:
 
@@ -895,10 +726,23 @@ Traceback (most recent call last):
     retries = retries.increment(
         method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
     )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 777, in urlopen
+    self._raise_timeout(
+    ~~~~~~~~~~~~~~~~~~~^
+        err=e, url=self.proxy.url, timeout_value=conn.timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
 
 During handling of the above exception, another exception occurred:
 
@@ -938,12 +782,246 @@ Traceback (most recent call last):
     resp = self.send(prep, **send_kwargs)
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
     r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 691, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
 
-2026-05-09 14:05:10,049 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
-2026-05-09 14:05:10,052 - TeleBot - ERROR - Exception traceback:
+2026-05-09 17:35:54,540 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+2026-05-09 17:35:54,550 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 775, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 1044, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 730, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 909, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 469, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 513, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+TimeoutError: _ssl.c:1063: The handshake operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 777, in urlopen
+    self._raise_timeout(
+    ~~~~~~~~~~~~~~~~~~~^
+        err=e, url=self.proxy.url, timeout_value=conn.timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
+    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                logger_level=logger_level, allowed_updates=allowed_updates)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
+    raise e
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
+    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+                               allowed_updates=allowed_updates,
+                               timeout=timeout, long_polling_timeout=long_polling_timeout)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
+    json_updates = apihelper.get_updates(
+        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
+        long_polling_timeout=long_polling_timeout)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
+    result = _get_req_session().request(
+        method, request_url, params=params, files=files,
+        timeout=(connect_timeout, read_timeout), proxies=proxy)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 691, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+
+2026-05-09 17:36:07,913 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+2026-05-09 17:36:07,922 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 775, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 1044, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 730, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 909, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 469, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\ssl_.py", line 513, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+TimeoutError: _ssl.c:1063: The handshake operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 777, in urlopen
+    self._raise_timeout(
+    ~~~~~~~~~~~~~~~~~~~^
+        err=e, url=self.proxy.url, timeout_value=conn.timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
+    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                logger_level=logger_level, allowed_updates=allowed_updates)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
+    raise e
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
+    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+                               allowed_updates=allowed_updates,
+                               timeout=timeout, long_polling_timeout=long_polling_timeout)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
+    json_updates = apihelper.get_updates(
+        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
+        long_polling_timeout=long_polling_timeout)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
+    result = _get_req_session().request(
+        method, request_url, params=params, files=files,
+        timeout=(connect_timeout, read_timeout), proxies=proxy)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 691, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+
+2026-05-09 17:36:13,151 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+2026-05-09 17:36:13,155 - TeleBot - ERROR - Exception traceback:
 urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)
 
 The above exception was the direct cause of the following exception:
@@ -962,7 +1040,7 @@ Traceback (most recent call last):
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
 
 During handling of the above exception, another exception occurred:
 
@@ -1004,10 +1082,10 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 676, in send
     raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
 
-2026-05-09 14:05:16,426 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
-2026-05-09 14:05:16,433 - TeleBot - ERROR - Exception traceback:
+2026-05-09 17:36:18,386 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+2026-05-09 17:36:18,394 - TeleBot - ERROR - Exception traceback:
 urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)
 
 The above exception was the direct cause of the following exception:
@@ -1026,7 +1104,7 @@ Traceback (most recent call last):
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
 
 During handling of the above exception, another exception occurred:
 
@@ -1068,98 +1146,10 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 676, in send
     raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
 
-2026-05-09 14:11:12,008 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 14:11:12,012 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
-    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                logger_level=logger_level, allowed_updates=allowed_updates)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
-    raise e
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
-    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
-    result = _get_req_session().request(
-        method, request_url, params=params, files=files,
-        timeout=(connect_timeout, read_timeout), proxies=proxy)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-2026-05-09 14:11:22,047 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
-2026-05-09 14:11:22,053 - TeleBot - ERROR - Exception traceback:
+2026-05-09 17:36:23,635 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+2026-05-09 17:36:23,642 - TeleBot - ERROR - Exception traceback:
 urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)
 
 The above exception was the direct cause of the following exception:
@@ -1178,7 +1168,7 @@ Traceback (most recent call last):
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
 
 During handling of the above exception, another exception occurred:
 
@@ -1220,186 +1210,10 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 676, in send
     raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
 
-2026-05-09 14:11:41,444 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 14:11:41,449 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
-    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                logger_level=logger_level, allowed_updates=allowed_updates)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
-    raise e
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
-    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
-    result = _get_req_session().request(
-        method, request_url, params=params, files=files,
-        timeout=(connect_timeout, read_timeout), proxies=proxy)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-2026-05-09 14:14:12,503 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-2026-05-09 14:14:12,511 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 336, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Python314\Lib\http\client.py", line 305, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
-    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                logger_level=logger_level, allowed_updates=allowed_updates)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
-    raise e
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
-    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
-    result = _get_req_session().request(
-        method, request_url, params=params, files=files,
-        timeout=(connect_timeout, read_timeout), proxies=proxy)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 672, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-2026-05-09 14:14:18,902 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
-2026-05-09 14:14:18,905 - TeleBot - ERROR - Exception traceback:
+2026-05-09 17:36:28,947 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+2026-05-09 17:36:28,951 - TeleBot - ERROR - Exception traceback:
 urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)
 
 The above exception was the direct cause of the following exception:
@@ -1418,7 +1232,7 @@ Traceback (most recent call last):
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 519, in increment
     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
 
 During handling of the above exception, another exception occurred:
 
@@ -1460,7 +1274,133 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 676, in send
     raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8417526930:***********************************/getUpdates?offset=140050034&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8723653878:***********************************/getUpdates?offset=326965327&timeout=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
 
-2026-05-09 14:16:16,455 - TeleBot - ERROR - Infinity polling: polling exited
-2026-05-09 14:16:16,455 - TeleBot - ERROR - Break infinity polling
+2026-05-09 17:42:54,395 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+2026-05-09 17:42:54,404 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connection.py", line 507, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Python314\Lib\http\client.py", line 1450, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\http\client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\http\client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Python314\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\urllib3\connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1123, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1214, in polling
+    self.__non_threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                logger_level=logger_level, allowed_updates=allowed_updates)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1340, in __non_threaded_polling
+    raise e
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 1312, in __non_threaded_polling
+    self.__retrieve_updates(timeout, long_polling_timeout, allowed_updates=allowed_updates)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 689, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+                               allowed_updates=allowed_updates,
+                               timeout=timeout, long_polling_timeout=long_polling_timeout)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\__init__.py", line 661, in get_updates
+    json_updates = apihelper.get_updates(
+        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
+        long_polling_timeout=long_polling_timeout)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 339, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\telebot\apihelper.py", line 162, in _make_request
+    result = _get_req_session().request(
+        method, request_url, params=params, files=files,
+        timeout=(connect_timeout, read_timeout), proxies=proxy)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\ccccc\AppData\Roaming\Python\Python314\site-packages\requests\adapters.py", line 691, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=10)
+
+2026-05-09 18:10:23,864 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 18:10:23,865 - TeleBot - ERROR - Break infinity polling
+2026-05-09 18:59:55,069 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 18:59:55,069 - __main__ - INFO - Starting bot with polling...
+2026-05-09 19:04:11,206 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 19:04:11,206 - TeleBot - ERROR - Break infinity polling
+2026-05-09 19:04:12,941 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 19:04:12,941 - __main__ - INFO - Starting bot with polling...
+2026-05-09 19:06:36,885 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 19:06:36,886 - TeleBot - ERROR - Break infinity polling
+2026-05-09 19:06:38,160 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 19:06:38,161 - __main__ - INFO - Starting bot with polling...
+2026-05-09 19:07:35,881 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 19:07:35,882 - TeleBot - ERROR - Break infinity polling
+2026-05-09 19:08:38,414 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 19:08:38,414 - __main__ - INFO - Starting bot with polling...
+2026-05-09 19:09:15,713 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 19:09:15,713 - TeleBot - ERROR - Break infinity polling
+2026-05-09 19:09:24,397 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 19:09:24,397 - __main__ - INFO - Starting bot with polling...
+2026-05-09 19:10:39,519 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 19:10:39,520 - TeleBot - ERROR - Break infinity polling
+2026-05-09 19:10:41,035 - __main__ - INFO - Shop Started! Using polling mode...
+2026-05-09 19:10:41,035 - __main__ - INFO - Starting bot with polling...
+2026-05-09 19:14:31,433 - TeleBot - ERROR - Infinity polling: polling exited
+2026-05-09 19:14:31,434 - TeleBot - ERROR - Break infinity polling

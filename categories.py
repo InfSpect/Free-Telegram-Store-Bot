@@ -1,10 +1,7 @@
-from datetime import *
-from flask_session import Session
+﻿from datetime import *
 import telebot
-from flask import Flask, request
 from telebot import types
 import os
-import os.path
 from database import *
 from dotenv import load_dotenv
 load_dotenv('config.env')
@@ -18,14 +15,12 @@ class CategoriesDatas:
         id = message.from_user.id
         keyboard = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
         keyboard.row_width = 2
-        buyer_id = message.from_user.id
-        buyer_username = message.from_user.username
         all_categories = GetDataFromDB.GetCategoryIDsInDB()
         categories = []
-        for catnum, catname in all_categories:
+        for catname in all_categories:
             catnames = catname.upper()
             categories.append(catnames)
-            
+
         def checkint():
             try:
                 input_cat = int(input_cate)
@@ -42,19 +37,17 @@ class CategoriesDatas:
                 if product_list == []:
                     keyboard = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
                     keyboard.row_width = 2
-                    key1 = types.KeyboardButton(text="Shop Items 🛒")
-                    key2 = types.KeyboardButton(text="My Orders 🛍")
-                    key3 = types.KeyboardButton(text="Support 📞")
+                    key1 = types.KeyboardButton(text="Shop Items")
+                    key2 = types.KeyboardButton(text="My Orders")
+                    key3 = types.KeyboardButton(text="Support")
                     keyboard.add(key1)
                     keyboard.add(key2, key3)
                     bot.send_message(id, f"No Product in the store", reply_markup=keyboard)
                 else:
                     bot.send_message(id, f"{product_cate} Gategory's Products")
-                    keyboard = types.InlineKeyboardMarkup()
-                    for productnumber, productname, productprice, productdescription, productimagelink, productdownloadlink, productquantity, productcategory in product_list:
-                        keyboard.add(types.InlineKeyboardButton(text="BUY NOW 💰", callback_data=f"getproduct_{productnumber}"))
-                        bot.send_photo(id, photo=f"{productimagelink}", caption=f"Product ID 🪪: /{productnumber}\n\nProduct Name 📦: {productname}\n\nProduct Price 💰: {productprice} {StoreCurrency}\n\nProducts In Stock 🛍: {productquantity}\n\nProduct Description 💬: {productdescription}", reply_markup=keyboard)
-                        
-                        #bot.send_message(id, "💡 Click on a Product ID to select the product purchase")
+                    for productnumber, productname, productprice, productdescription, productimagelink in product_list:
+                        product_keyboard = types.InlineKeyboardMarkup()
+                        product_keyboard.add(types.InlineKeyboardButton(text="Buy Now", callback_data=f"getproduct_{productnumber}"))
+                        bot.send_photo(id, photo=f"{productimagelink}", caption=f"Product ID: {productnumber}\n\nName: {productname}\n\nPrice: {productprice} {StoreCurrency}\n\nDescription: {productdescription}", reply_markup=product_keyboard)
             else:
                 bot.send_message(id, "Category not found.")

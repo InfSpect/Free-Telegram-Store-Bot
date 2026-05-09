@@ -14,8 +14,7 @@ DEFAULT_DATA = {
     "admins": [],
     "products": [],
     "orders": [],
-    "categories": [],
-    "payment_methods": []
+    "categories": []
 }
 
 
@@ -196,6 +195,9 @@ class CreateDatas:
                     "ordernumber": int(ordernumber),
                     "productnumber": int(productnumber),
                     "payment_id": payment_id,
+                    "receipt_path": None,
+                    "review_status": "pending",
+                    "payment_deadline": None,
                     "created_at": _now()
                 })
                 _save_data(data)
@@ -213,44 +215,6 @@ class CreateDatas:
                     "id": _next_id(data["categories"]),
                     "categorynumber": int(categorynumber),
                     "categoryname": categoryname,
-                    "created_at": _now()
-                })
-                _save_data(data)
-
-    @staticmethod
-    def AddEmptyRow():
-        CreateDatas.AddPaymentMethod("None", "None", "None")
-
-    @staticmethod
-    def AddCryptoPaymentMethod(id, username, token_keys_clientid, secret_keys, method_name):
-        with db_lock:
-            data = _load_data()
-            method = _find(data["payment_methods"], "method_name", method_name)
-            if not method:
-                method = {"id": _next_id(data["payment_methods"]), "method_name": method_name, "created_at": _now()}
-                data["payment_methods"].append(method)
-            method.update({
-                "admin_id": id,
-                "username": username,
-                "token_keys_clientid": token_keys_clientid,
-                "secret_keys": secret_keys,
-                "activated": "NO"
-            })
-            _save_data(data)
-
-    @staticmethod
-    def AddPaymentMethod(id, username, method_name):
-        with db_lock:
-            data = _load_data()
-            if not _find(data["payment_methods"], "method_name", method_name):
-                data["payment_methods"].append({
-                    "id": _next_id(data["payment_methods"]),
-                    "admin_id": id,
-                    "username": username,
-                    "method_name": method_name,
-                    "token_keys_clientid": None,
-                    "secret_keys": None,
-                    "activated": "YES",
                     "created_at": _now()
                 })
                 _save_data(data)
@@ -281,22 +245,6 @@ class CreateDatas:
         CreateDatas.UpdateOrderPaymentMethod(paidmethod, ordernumber)
 
     @staticmethod
-    def UpdatePaymentMethodToken(id, username, token_keys_clientid, method_name):
-        CreateDatas._update_one("payment_methods", "method_name", method_name, {
-            "admin_id": id,
-            "username": username,
-            "token_keys_clientid": token_keys_clientid
-        })
-
-    @staticmethod
-    def UpdatePaymentMethodSecret(id, username, secret_keys, method_name):
-        CreateDatas._update_one("payment_methods", "method_name", method_name, {
-            "admin_id": id,
-            "username": username,
-            "secret_keys": secret_keys
-        })
-
-    @staticmethod
     def Update_A_Category(categoryname, categorynumber):
         CreateDatas._update_one("categories", "categorynumber", categorynumber, {"categoryname": categoryname})
 
@@ -311,6 +259,18 @@ class CreateDatas:
     @staticmethod
     def UpdateOrderPurchasedKeys(productkeys, ordernumber):
         CreateDatas._update_one("orders", "ordernumber", ordernumber, {"productkeys": productkeys})
+
+    @staticmethod
+    def UpdateOrderReceipt(receipt_path, ordernumber):
+        CreateDatas._update_one("orders", "ordernumber", ordernumber, {"receipt_path": receipt_path})
+
+    @staticmethod
+    def UpdateOrderReviewStatus(review_status, ordernumber):
+        CreateDatas._update_one("orders", "ordernumber", ordernumber, {"review_status": review_status})
+
+    @staticmethod
+    def UpdateOrderPaymentDeadline(payment_deadline, ordernumber):
+        CreateDatas._update_one("orders", "ordernumber", ordernumber, {"payment_deadline": payment_deadline})
 
     @staticmethod
     def UpdateProductName(productname, productnumber):
@@ -491,27 +451,6 @@ class GetDataFromDB:
         return _distinct_rows(_load_data()["orders"], ["ordernumber", "productname", "buyerusername"])
 
     @staticmethod
-    def GetPaymentMethods():
-        return _distinct_rows(_load_data()["payment_methods"], ["method_name", "activated", "username"])
-
-    @staticmethod
-    def GetPaymentMethodsAll(method_name):
-        methods = [m for m in _load_data()["payment_methods"] if m.get("method_name") == method_name]
-        return _distinct_rows(methods, ["method_name", "token_keys_clientid", "secret_keys"])
-
-    @staticmethod
-    def GetPaymentMethodTokenKeysCleintID(method_name):
-        return GetDataFromDB._get_one("payment_methods", "method_name", method_name, "token_keys_clientid")
-
-    @staticmethod
-    def GetPaymentMethodSecretKeys(method_name):
-        return GetDataFromDB._get_one("payment_methods", "method_name", method_name, "secret_keys")
-
-    @staticmethod
-    def GetAllPaymentMethodsInDB():
-        return _distinct_rows(_load_data()["payment_methods"], ["method_name"])
-
-    @staticmethod
     def GetProductCategories():
         return _distinct_rows(_load_data()["products"], ["productcategory"])
 
@@ -530,6 +469,36 @@ class GetDataFromDB:
             "paidmethod", "productdownloadlink", "productkeys", "buyercomment",
             "ordernumber", "productnumber"
         ])
+
+    @staticmethod
+    def GetOrderDetailsAnyStatus(ordernumber):
+        orders = [
+            o for o in _load_data()["orders"]
+            if _as_int(o.get("ordernumber")) == _as_int(ordernumber)
+        ]
+        return _distinct_rows(orders, [
+            "buyerid", "buyerusername", "productname", "productprice", "orderdate",
+            "paidmethod", "productdownloadlink", "productkeys", "buyercomment",
+            "ordernumber", "productnumber"
+        ])
+
+    @staticmethod
+    def GetOrderReceiptPath(ordernumber):
+        return GetDataFromDB._get_one("orders", "ordernumber", ordernumber, "receipt_path")
+
+    @staticmethod
+    def GetOrderReviewStatus(ordernumber):
+        return GetDataFromDB._get_one("orders", "ordernumber", ordernumber, "review_status")
+
+    @staticmethod
+    def GetPendingReceiptOrdersUser(buyerid):
+        orders = [
+            o for o in _load_data()["orders"]
+            if _as_int(o.get("buyerid")) == _as_int(buyerid)
+            and o.get("paidmethod") == "NO"
+            and o.get("review_status") == "awaiting_receipt"
+        ]
+        return _distinct_rows(orders, ["ordernumber", "payment_deadline"])
 
     @staticmethod
     def GetOrderIDs_Buyer(buyerid):
@@ -581,10 +550,6 @@ class CleanData:
     @staticmethod
     def delete_a_product(productnumber):
         CleanData._delete("products", "productnumber", productnumber)
-
-    @staticmethod
-    def delete_a_payment_method(method_name):
-        CleanData._delete("payment_methods", "method_name", method_name)
 
     @staticmethod
     def delete_a_category(categorynumber):
